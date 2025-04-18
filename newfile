@@ -1,0 +1,34 @@
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { RouteProp, useRoute } from '@react-navigation/native';
+
+type ParamList = {
+  LifeArea: { area: string };
+};
+
+export default function LifeAreaScreen() {
+  const route = useRoute<RouteProp<ParamList, 'LifeArea'>>();
+  const { area } = route.params;
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>{area}</Text>
+      {/* Aquí puede ir contenido dinámico según el área */}
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#333',
+  },
+});
